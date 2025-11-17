@@ -11,11 +11,13 @@ class Task {
     constructor(title, priority) {
         this.title = title
         this.priority = priority
+
+        Task.allTasks.push(title)
     }
-    completedStatus() {
+    get completedStatus() {
         return this.#completed
     }
-    timeSpent() {
+    get timeSpent() {
         return this.#minutesSpent
     }
     workOn(minutes) {
@@ -30,11 +32,10 @@ class Task {
         return this.#completed
     }
     static getTotalTasks() {
-        Task.allTasks.push(title)
-        return this.allTasks
+        return this.allTasks.length
     }
-    findByTitle(title) {
-        const found = Task.allTasks.find(title)
+    static findByTitle(title) {
+        const found = Task.allTasks.find((tasks) => tasks === title)
         return found
     }
 }
