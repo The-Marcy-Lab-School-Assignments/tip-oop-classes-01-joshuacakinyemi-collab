@@ -12,7 +12,7 @@ class Task {
         this.title = title
         this.priority = priority
 
-        Task.allTasks.push(title)
+        Task.allTasks.push(this)
     }
     get completedStatus() {
         return this.#completed
@@ -35,8 +35,8 @@ class Task {
         return this.allTasks.length
     }
     static findByTitle(title) {
-        const found = Task.allTasks.find((tasks) => tasks === title)
-        return found
+        return this.allTasks.find((tasks) => tasks === title)
+
     }
 }
 
