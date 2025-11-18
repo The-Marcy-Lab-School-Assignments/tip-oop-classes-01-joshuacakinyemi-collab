@@ -35,7 +35,7 @@ class Task {
         return this.allTasks.length
     }
     static findByTitle(title) {
-        return this.allTasks.find((tasks) => tasks === title)
+        return this.allTasks.find((tasks) => tasks.title === title)
 
     }
 }
